@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/exchange_component_01/exchange_component_01.iml" filepath="$PROJECT_DIR$/exchange_component_01/exchange_component_01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exchange_component_02/exchange_component_02.iml" filepath="$PROJECT_DIR$/exchange_component_02/exchange_component_02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kmp_20_T06.iml" filepath="$PROJECT_DIR$/kmp_20_T06.iml" />
+    </modules>
+  </component>
+</project>
