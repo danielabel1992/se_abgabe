@@ -49,9 +49,7 @@ public class RouletteWheelSelection implements ISelection {
                     selectedKnaps.add(k);
                 }
             }
-
         }
-
         return selectedKnaps;
     }
 

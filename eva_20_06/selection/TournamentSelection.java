@@ -10,7 +10,6 @@ public class TournamentSelection implements ISelection {
         ArrayList<Knapsack> allValids = new ArrayList<Knapsack>(knapsacks);
         allValids.removeIf(k -> k.getSize() >  Configuration.instance.maxKnapsackVolume);
 
-
         if (allValids.size()<=Configuration.instance.maxRetSelectionIndis) {
             return allValids;
         }
@@ -23,27 +22,24 @@ public class TournamentSelection implements ISelection {
             ArrayList<Knapsack> tournament = new ArrayList<>();
             int posTournament = 0;
             int maxTournamentPlayers = Configuration.instance.maxTournamentSize;
-            if (allValids.size() - winners.size() <= maxTournamentPlayers) {
-                maxTournamentPlayers = allValids.size() - winners.size() -1;
+            if (allValids.size() <= maxTournamentPlayers) {
+                maxTournamentPlayers = allValids.size();
             }
             while (posTournament < maxTournamentPlayers) {
                 int index = m.nextInt(allValids.size());
-                if (!tournament.contains(allValids.get(index)) && !winners.contains(allValids.get(index))) {
-                    tournament.add(allValids.get(index));
-                    posTournament++;
-                }
+                tournament.add(allValids.get(index));
+                posTournament++;
             }
             // Let's play the Tournament
             Knapsack winner = tournament.get(0);
-            for (posTournament = 1; posTournament < maxTournamentPlayers; posTournament++) {
+            for (posTournament = 1; posTournament < tournament.size(); posTournament++) {
                 if (winner.getTotal() < tournament.get(posTournament).getTotal()) {
                     winner = tournament.get(posTournament);
                 }
             }
-            if (!winners.contains((winner))) {
-                winners.add(winner);
-                posRetValues ++;
-            }
+            winners.add(winner);
+            allValids.remove(winner);
+            posRetValues ++;
         }
         return winners;
     }
